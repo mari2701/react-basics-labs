@@ -26,6 +26,33 @@ function App() {
     setTaskState({tasks});
   } 
 
+  const formChangeHandler = (event) => {
+    let form = {...formState};
+
+    switch(event.target.name) {
+      case "title":
+          form.title = event.target.value;
+          break;
+      case "description":
+          form.description = event.target.value;
+          break;
+      case "deadline":
+          form.deadline = event.target.value;
+          break;
+      default:
+          form = formState;
+    }
+    setFormState(form);
+  }
+
+
+  const [ formState, setFormState ] = useState({
+    title: "",
+    description: "",
+    deadline: ""
+  });
+
+  console.log(formState);
 
 
     return (
@@ -47,7 +74,10 @@ function App() {
     
   ))}
     <div className="container">
-      <AddTaskForm />
+     <AddTaskForm change={formChangeHandler} />
+  
+
+      
     </div>
 
     </div>
@@ -60,3 +90,4 @@ function App() {
 }
 
 export default App;
+
