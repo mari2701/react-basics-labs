@@ -1,3 +1,4 @@
+import AddTaskForm from './components/Form';
 import React, { useState } from 'react';
 import './App.css';
 import Task from './components/Task';
@@ -41,11 +42,20 @@ function App() {
       key={task.id}
       deleteTask = {() => deleteHandler(index)}
 
+      
     />
+    
   ))}
+    <div className="container">
+      <AddTaskForm />
+    </div>
 
     </div>
+    
+
   );
+
+  
 
 }
 
